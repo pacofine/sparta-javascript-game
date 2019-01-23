@@ -2,24 +2,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var canvas = document.querySelector('canvas');
 
-    // border: 10px solid black;
     canvas.width = 1500;
     canvas.height = 700;
-    // margin: 0 750px;
 
     var c = canvas.getContext('2d');
 
-    function ball(x, y, dx, dy, radius) {
+    var player1_score = 0;
+    var player2_score = 0;
+    var winning_score = 3;
+    
+
+    console.log(player1_score)
+    console.log(player2_score)
+
+    //ball constructor function
+    function ball(x, y, dx, dy, radius, col) {
         this.x = x;
         this.y = y;
         this.dx = dx;
         this.dy = dy;
         this.radius = radius;
+        this.col = col;
 
         this.draw = function () {
             c.beginPath();
             c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-            c.fillStyle = "rgb(16, 48, 78)";
+            c.fillStyle = this.col;
             c.fill();
             c.stroke();
         }
@@ -33,31 +41,44 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.dy = -this.dy;
             }
 
-            this.x += this.dx; //horizontal speed 
-            this.y += this.dy; //vertical speed 
+            //press enter to play condition 
+            if (play) {
+                this.x += this.dx; //horizontal speed 
+                this.y += this.dy; //vertical speed 
+            }
+
+            c.font = "50px Georgia";
+            c.fillStyle = 'red';
+            c.fillText("Player 1", (1 / 4) * canvas.width - 70, 60);
+            c.fillText("Player 2", (3 / 4) * canvas.width - 70, 60);
+
+            c.font = "600px Arial";
+            c.fillStyle = "grey";
+            c.fillText(" " + player2_score, 100, 600);
+            c.fillText(" " + player1_score, 800, 600);
 
             this.draw();
         }
     }
 
-    var ball = new ball(750, 350, 10, 10, 20);
+    var ball = new ball(750, 350, 10, 10, 20, 'blue');//The ball
 
-
-    //paddle constructor 
-    function paddle(x, y, pWidth, pHeight) {
+    //paddle constructor function
+    function paddle(x, y, pWidth, pHeight, color) {
         this.x = x;
         this.y = y;
         this.pWidth = pWidth;
         this.pHeight = pHeight;
-        //this is an empty function that draws the paddles as specified
+        this.color = this.color;
+
         this.draw = function () {
             c.beginPath();
-            c.fillStyle = 'rgb(26, 4, 87)';
+            c.fillStyle = this.color;
             c.fillRect(this.x, this.y, this.pWidth, this.pHeight);
             c.fill();
             c.stroke();
         }
-        //paddle update function: contains control button events and states the direction and speed of each event 
+
         this.update = function () {
             if (this.y <= 0) {
                 this.y = 0;
@@ -82,17 +103,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    let paddle1, paddle2;
+    // paddles one and two 
+    let paddle1, paddle2; //score1, score2;
     function init() {
-        paddle1 = new paddle(10, ((canvas.height / 2) - (300 / 2)), 20, 300);
-        paddle2 = new paddle((canvas.width - 30), ((canvas.height / 2) - (300 / 2)), 20, 300);
+        paddle1 = new paddle(10, ((canvas.height / 2) - (300 / 2)), 20, 300, 'blue');
+        paddle2 = new paddle((canvas.width - 30), ((canvas.height / 2) - (300 / 2)), 20, 300, 'blue)');
     }
 
     up = false;
     down = false;
     up1 = false;
     down1 = false;
-
+    play = false;
+    //keydown eventlistner ensures that an event happens when a key is pushed down
     document.addEventListener("keydown", press);
     function press(e) {
         if (
@@ -111,9 +134,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.keyCode === 79 /* k */) {
             down1 = true;
         }
-
+        if (e.keyCode === 13 /* enter */) {
+            play = true;
+        }
     }
-
+    //keyup eventlistner ensures that an event happens when a key is released
     document.addEventListener("keyup", release);
     function release(e) {
         if (
@@ -136,12 +161,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    //reset brings the ball back to the centre of the platform
     function reset_ball() {
         // Reset the ball's placement and direction after scoring
-        ball_x = canvas.width / 2;
-        ball_y = canvas.height / 2;
+        ball.x = canvas.width / 2;
+        ball.y = canvas.height / 2;
+        if (play = false) {
+            ball.dx = 0;
+            ball.dy = 0;
+        } else {
+            ball.x += 10; //horizontal speed 
+            ball.y += 10; //vertical speed 
+        }
     }
 
+    //animations
     function animate() {
         requestAnimationFrame(animate);
         c.clearRect(0, 0, canvas.width, canvas.height);
@@ -151,18 +185,29 @@ document.addEventListener("DOMContentLoaded", function () {
             && ball.y > paddle1.y
             && ball.y < paddle1.y + paddle1.pHeight) {
             ball.dx = -ball.dx;
-        } else {
-            // player2_score++;
+        }
+
+        if (ball.x - ball.radius <= 0) {
+            player1_score++;
+            reset_ball();
+        }
+
+        if (ball.x + ball.radius >= canvas.width) {
+            player2_score++;
             reset_ball();
         }
 
         if (ball.x + ball.radius > paddle2.x - paddle2.pWidth
             && ball.y > paddle2.y
             && ball.y < paddle2.y + paddle2.pHeight) {
-            ball.dx = -ball.dx;
-        } else {
-            // player1_score++;
-            reset_ball();
+            ball.dx = -1.05 * ball.dx;
+        }
+
+
+        if (player1_score === winning_score || player2_score === winning_score) {
+            c.font = "70px ariel";
+            c.fillStyle = 'black';
+            c.fillText("END GAME", (canvas.width/2 - 160), (canvas.height/2));
         }
 
         paddle1.update();

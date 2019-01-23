@@ -2,4 +2,13 @@
     border: 10px solid rgb(95, 92, 92);
     margin: 0 750px;
     background-color: rgb(138, 89, 167);
+    color: rgb(33, 161, 161);
 }
+
+.score1 { 
+    font: 100px;
+}
+.score2 { 
+    font: 100px;
+}
+
