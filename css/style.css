@@ -1,14 +1,18 @@
 .canvas {
     border: 10px solid rgb(95, 92, 92);
-    margin: 0 750px;
     background-color: rgb(138, 89, 167);
     color: rgb(33, 161, 161);
 }
 
-.score1 { 
-    font: 100px;
+body {
+    background-color: rgba(80, 73, 73, 0.945);
 }
-.score2 { 
-    font: 100px;
+
+.container {
+    margin: 10px;
+}
+
+.middle-div {
+    width: 1000px
 }
 
