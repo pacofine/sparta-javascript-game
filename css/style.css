@@ -1,4 +1,39 @@
 .canvas {
-    border: 10px solid black;
-    margin: 0 750px;
+    border: 10px solid rgb(37, 37, 37);
+    background-image: url(../images/canvas-background-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(255, 234, 50);
 }
+
+.game-container {
+    height: 1525px;
+    background-image: url(../images/body-background-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    font-size: 100px;
+    font-style: italic;
+    width: 1000px;
+    color: rgb(62, 100, 134);
+}
+
+.card-1 {
+    width: 80rem;
+    margin: 0 54rem 2rem 54rem;
+    /* background-image:linear-gradient(black -23%, grey 90%); */
+}
+
+h2{
+    font-size: 8rem;
+    color: rgb(35, 117, 189);
+}
+
+h3 {
+    font-size: 4rem;
+    color: rgb(35, 117, 189);
+}
+
+
