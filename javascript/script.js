@@ -2,18 +2,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var canvas = document.querySelector('canvas');
 
-    canvas.width = 1500;
-    canvas.height = 700;
+    canvas.width = 1000;
+    canvas.height = 400;
 
     var c = canvas.getContext('2d');
 
     var player1_score = 0;
     var player2_score = 0;
     var winning_score = 3;
-    
+
 
     console.log(player1_score)
     console.log(player2_score)
+
+    // function lines(x1, y1, x2, y2) {
+    //     this.x1 = x1;
+    //     this.y1 = y1;
+    //     this.x2 = x2;
+    //     this.y2 = y2;
+
+    //     this.draw = funtion() {
+    //         c.beginPath();
+    //         c.moveTo(this.x1, this.y1);
+    //         c.lineTo(this.x2, this.y2);
+    //         c.strokeStyle = "white"
+    //         c.stroke();
+    //     }
+
+    //     this.update = function () {
+    //         this.draw();
+    //     }
+    // }
+
+    // var line1 = new lines(canvas.width/2, 0, canvas.width/2, canvas.height);
 
     //ball constructor function
     function ball(x, y, dx, dy, radius, col) {
@@ -47,21 +68,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.y += this.dy; //vertical speed 
             }
 
-            c.font = "50px Georgia";
-            c.fillStyle = 'red';
-            c.fillText("Player 1", (1 / 4) * canvas.width - 70, 60);
+            c.font = "30px Georgia";
+            c.fillStyle = 'rgb(255, 234, 50)';
+            c.fillText("Player 1", (1 / 4) * canvas.width - 100, 60);
             c.fillText("Player 2", (3 / 4) * canvas.width - 70, 60);
 
-            c.font = "600px Arial";
-            c.fillStyle = "grey";
-            c.fillText(" " + player2_score, 100, 600);
-            c.fillText(" " + player1_score, 800, 600);
+            c.font = "300px Arial";
+            c.fillStyle = "rgb(255, 234, 50)";
+            c.fillText(" " + player2_score, (0.05*canvas.width), (0.8*canvas.height));
+            c.fillText(" " + player1_score, (0.64*canvas.width), (0.8*canvas.height));
 
             this.draw();
         }
     }
 
-    var ball = new ball(750, 350, 10, 10, 20, 'blue');//The ball
+    var ball = new ball(750, 350, 10, 10, 20, 'rgb(32, 201, 201)');//The ball
 
     //paddle constructor function
     function paddle(x, y, pWidth, pHeight, color) {
@@ -99,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (down1) {
                 paddle2.y -= 5;
             }
+
             this.draw();
         }
     }
@@ -106,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // paddles one and two 
     let paddle1, paddle2; //score1, score2;
     function init() {
-        paddle1 = new paddle(10, ((canvas.height / 2) - (300 / 2)), 20, 300, 'blue');
-        paddle2 = new paddle((canvas.width - 30), ((canvas.height / 2) - (300 / 2)), 20, 300, 'blue)');
+        paddle1 = new paddle((0.01*canvas.width), (0.375*canvas.height), 10, (canvas.width/8), 'blue');
+        paddle2 = new paddle((0.98*canvas.width), (0.375*canvas.height), 10, (canvas.width/8), 'blue)');
     }
 
     up = false;
@@ -207,12 +229,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (player1_score === winning_score || player2_score === winning_score) {
             c.font = "70px ariel";
             c.fillStyle = 'black';
-            c.fillText("END GAME", (canvas.width/2 - 160), (canvas.height/2));
+            c.fillText("END GAME", (canvas.width / 2 - 160), (canvas.height / 2));
         }
+
 
         paddle1.update();
         paddle2.update();
         ball.update();
+        // line1.update();
     }
 
     init();
