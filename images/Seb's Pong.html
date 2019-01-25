@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://127.0.0.1:5500/index-cover.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seb's Pong</title>
+    <script src="./Seb&#39;s Pong_files/script.js.download"></script>
+    <!-- jQuery -->
+    <script src="./Seb&#39;s Pong_files/jquery-3.3.1.min.js.download" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    
+    <!-- my script -->
+    <script src="./Seb&#39;s Pong_files/bootstrap.min.js.download"></script>
+    <!-- my css -->
+    
+<link rel="stylesheet" href="./Seb&#39;s Pong_files/bootstrap.min.css"><link rel="stylesheet" href="./Seb&#39;s Pong_files/style.css"></head>
+
+<body>
+
+
+
+    <div class="game-container">
+        <div>
+            <h1 class="title-1">Star Pong</h1> 
+        </div>
+
+        <div class="card-1">
+            <div class="card-body">
+                <h3 class="card-title">Game Rules</h3>
+                <p class="card-text">Choose between three deep space platforms. Press "Enter" to play.</p>
+                <h4 class="card-title">Player 1</h4>
+                <p class="card-text">Player 1 uses keys (W) and (S) to move up and down respectively.</p>
+                <h4 class="card-title">Player 2</h4>
+                <p class="card-text">Player 1 uses keys (O) and (Q) to move up and down respectively.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card bg-dark text-white">
+                        <img src="./Seb&#39;s Pong_files/canvas-background-6.jpg" class="card-img" alt="galaxy">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title color">Magnetic Monster</h5>
+                            <p class="card-text color">Seen in the image are impressive lanes of dust from a spiral galaxy. It lies partly in front of the giant elliptical central cluster galaxy and has been completed disrupted by the tidal gravitational forces within the galaxy cluster. </p>
+                            <a href="http://127.0.0.1:5500/index.html" class="btn btn-primary">Play</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card bg-dark text-white">
+                        <img src="./Seb&#39;s Pong_files/canvas-background-4.jpg" class="card-img" alt="galaxy">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title color">The Bubble Nebula</h5>
+                            <p class="card-text color">The Bubble Nebula, also known as NGC 7635, is an emission nebula located 8 000 light-years away. This stunning new image was observed by the NASA/ESA Hubble Space Telescope to celebrate its 26th year in space.</p>
+                            <a href="http://127.0.0.1:5500/index1.html" class="btn btn-primary">Play</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card bg-dark text-white">
+                        <img src="./Seb&#39;s Pong_files/canvas-background-5.jpg" class="card-img" alt="galaxy">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">New Stars</h5>
+                            <p class="card-text">This image depicts bright blue newly formed stars that are blowing a cavity in the centre of a fascinating star-forming region known as N90.</p>
+                            <a href="http://127.0.0.1:5500/index2.html" class="btn btn-primary">Play</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</div></body></html>
