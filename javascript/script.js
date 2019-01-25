@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    var ball = new ball((0.5*canvas.width), (0.5*canvas.height), 10, 10, 12, 'rgb(32, 201, 201)');//The ball
+    var ball = new ball((0.5*canvas.width), (0.5*canvas.height), 6, 6, 12, 'rgb(32, 201, 201)');//The ball
 
     //paddle constructor function
     function paddle(x, y, pWidth, pHeight, color) {
@@ -104,8 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.y <= 0) {
                 this.y = 0;
             }
-            if (this.y >= 700 - this.pHeight) {
-                this.y = 700 - this.pHeight;
+            if (this.y >= 400 - this.pHeight) {
+                this.y = 400 - this.pHeight;
             }
 
             if (up) {
