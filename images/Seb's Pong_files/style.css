@@ -1,6 +1,6 @@
 .canvas1 {
     border: 10px solid rgb(37, 37, 37);
-    background-image: url(../images/canvas-background-6.jpg);
+    background-image: url(../images/canvas-background-5.jpg);
     background-position-y: -15rem;
     background-position-y: -10rem;
     background-size: cover;
@@ -20,7 +20,7 @@
 }
 .canvas3 {
     border: 10px solid rgb(37, 37, 37);
-    background-image: url(../images/canvas-background-5.jpg);
+    background-image: url(../images/canvas-background-6.jpg);
     background-position-y: -15rem;
     background-position-y: -10rem;
     background-size: cover;
@@ -42,13 +42,13 @@
 }
 
 .title1 {
-    width: 1081px;
+    width: 900px;
     height: 15rem;
     padding: 6rem 0 0 0;
     font-size: 100px;
     font-family: 'moonhouse';
     color: rgb(62, 100, 134);
-    margin: 0 22rem 0 13.5rem;
+    margin: 0 22rem 0 22rem;
 }
 .title2 {
     width: 900px;
@@ -57,7 +57,7 @@
     font-size: 100px;
     font-family: 'moonhouse';
     color: rgb(62, 100, 134);
-    margin: 0 0 0 20.5rem;
+    margin: 0 26rem 0 26rem;
 }
 .title3 {
     width: 900px;
@@ -66,7 +66,7 @@
     font-size: 100px;
     font-family: 'moonhouse';
     color: rgb(62, 100, 134);
-    margin: 0 0 0 26.5rem;
+    margin: 0 40rem 0 30rem;
 }
 
 .title-1 {
@@ -80,7 +80,7 @@
 }
 
 .card-1 {
-    width: 40rem;
+    width: 34rem;
     margin: 0 10rem 2rem 10rem;
     border: 10px solid rgb(43, 40, 40);
     /* background-image:linear-gradient(black -23%, grey 90%); */
@@ -93,31 +93,16 @@ h3 {
 }
 
 h4 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: rgb(35, 117, 189);
     font-family: 'moonhouse';
 }
 
-h5 {
-    font-size: 1.7rem;
-    color: white;
-    font-family: 'moonhouse';
-}
-
- .card-1 p  {
-    font-size: 1.2rem;
+p  {
+    font-size: 1rem;
     color: rgb(182, 176, 176);
-}
-
-p {
-    font-size: 1.2rem;
 }
 
 img {
     height: 18rem;
-}
-
-.button-1 {
-    width: 4rem;
-    margin: 0%;
 }
